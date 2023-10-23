@@ -99,13 +99,13 @@
             }
             
             // add event listeners for each note to call the playNote function with the note as the paramater when the button is clicked
-            noteC4.addEventListener("click", playNote("c4"));
-            noteD4.addEventListener("click", playNote("d4"));
-            noteE4.addEventListener("click", playNote("e4"));
-            noteF4.addEventListener("click", playNote("f4"));
-            noteG4.addEventListener("click", playNote("g4"));
-            noteA5.addEventListener("click", playNote("a5"));
-            noteB5.addEventListener("click", playNote("b5"));
+            noteC4.addEventListener("click", function() {playNote("c4")});
+            noteD4.addEventListener("click", function() {playNote("d4")});
+            noteE4.addEventListener("click", function() {playNote("e4")});
+            noteF4.addEventListener("click", function() {playNote("f4")});
+            noteG4.addEventListener("click", function() {playNote("g4")});
+            noteA5.addEventListener("click", function() {playNote("a5")});
+            noteB5.addEventListener("click", function() {playNote("b5")});
         </script>
     </body>
 </html>
