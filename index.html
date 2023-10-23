@@ -70,13 +70,13 @@
         <p>[welcome paragraph to write with the whole team]</p>
 
         <div id="notes">
-            <button class="note-button" id="a-note">A</button>
-            <button class="note-button" id="b-note">B</button>
-            <button class="note-button" id="c-note">C</button>
-            <button class="note-button" id="d-note">D</button>
-            <button class="note-button" id="e-note">E</button>
-            <button class="note-button" id="f-note">F</button>
-            <button class="note-button" id="g-note">G</button>
+            <button class="note-button" id="c4-note">C4</button>
+            <button class="note-button" id="d4-note">D4</button>
+            <button class="note-button" id="e4-note">E4</button>
+            <button class="note-button" id="f4-note">F4</button>
+            <button class="note-button" id="g4-note">G4</button>
+            <button class="note-button" id="a5-note">A5</button>
+            <button class="note-button" id="b5-note">B5</button>
         </div>
 
         <script>
@@ -85,26 +85,27 @@
             var noteButtons = document.getElementsByClassName("note-button");
 
             // define each note button in the document
-            var noteA = document.getElementById("a-note");
-            var noteB = document.getElementById("b-note");
-            var noteC = document.getElementById("c-note");
-            var noteD = document.getElementById("d-note");
-            var noteE = document.getElementById("e-note");
-            var noteF = document.getElementById("f-note");
-            var noteG = document.getElementById("g-note");
+            var noteC4 = document.getElementById("c4-note");
+            var noteD4 = document.getElementById("d4-note");
+            var noteE4 = document.getElementById("e4-note");
+            var noteF4 = document.getElementById("f4-note");
+            var noteG4 = document.getElementById("g4-note");
+            var noteA5 = document.getElementById("a5-note");
+            var noteB5 = document.getElementById("b5-note");
 
             var playNote = function(note) {
-
+                new Audio("https://github.com/MadelynGH/17393-Project/blob/main/note-" + note +
+                 ".wav").play();
             }
             
             // add event listeners for each note to call the playNote function with the note as the paramater when the button is clicked
-            noteA.addEventListener("click", playNote("a"));
-            noteB.addEventListener("click", playNote("b"));
-            noteC.addEventListener("click", playNote("c"));
-            noteD.addEventListener("click", playNote("d"));
-            noteE.addEventListener("click", playNote("e"));
-            noteF.addEventListener("click", playNote("f"));
-            noteG.addEventListener("click", playNote("g"));
+            noteC4.addEventListener("click", playNote("c4"));
+            noteD4.addEventListener("click", playNote("d4"));
+            noteE4.addEventListener("click", playNote("e4"));
+            noteF4.addEventListener("click", playNote("f4"));
+            noteG4.addEventListener("click", playNote("g4"));
+            noteA5.addEventListener("click", playNote("a5"));
+            noteB5.addEventListener("click", playNote("b5"));
         </script>
     </body>
 </html>
