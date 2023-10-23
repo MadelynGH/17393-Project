@@ -32,6 +32,10 @@
                 height: 20vh;
             }
 
+            .note-button:hover {
+                cursor: pointer;
+            }
+
             #notes {
                 display: flex;
                 justify-content: center;
@@ -46,7 +50,7 @@
             }
 
             #logo {
-                height: 200px;
+                height: 400px;
                 margin: 50px;
             }
 
@@ -60,14 +64,44 @@
     <body>
         <img src="https://github.com/MadelynGH/17393-Project/blob/main/FLLC%2017393%20Logo.png?raw=true" id="logo">
 
+        <p>[welcome paragraph to write with the whole team]</p>
+
         <div id="notes">
-            <button class="note-button">A</button>
-            <button class="note-button">B</button>
-            <button class="note-button">C</button>
-            <button class="note-button">D</button>
-            <button class="note-button">E</button>
-            <button class="note-button">F</button>
-            <button class="note-button">G</button>
+            <button class="note-button" id="a-note">A</button>
+            <button class="note-button" id="b-note">B</button>
+            <button class="note-button" id="c-note">C</button>
+            <button class="note-button" id="d-note">D</button>
+            <button class="note-button" id="e-note">E</button>
+            <button class="note-button" id="f-note">F</button>
+            <button class="note-button" id="g-note">G</button>
         </div>
+
+        <script>
+
+            // define the note buttons class as a whole
+            var noteButtons = document.getElementsByClassName("note-button");
+
+            // define each note button in the document
+            var noteA = document.getElementById("a-note");
+            var noteB = document.getElementById("b-note");
+            var noteC = document.getElementById("c-note");
+            var noteD = document.getElementById("d-note");
+            var noteE = document.getElementById("e-note");
+            var noteF = document.getElementById("f-note");
+            var noteG = document.getElementById("g-note");
+
+            var playNote = function(note) {
+                
+            }
+            
+            // add event listeners for each note to call the playNote function with the note as the paramater when the button is clicked
+            noteA.addEventListener("click", playNote("a"));
+            noteB.addEventListener("click", playNote("b"));
+            noteC.addEventListener("click", playNote("c"));
+            noteD.addEventListener("click", playNote("d"));
+            noteE.addEventListener("click", playNote("e"));
+            noteF.addEventListener("click", playNote("f"));
+            noteG.addEventListener("click", playNote("g"));
+        </script>
     </body>
 </html>
