@@ -140,9 +140,14 @@
             }
 
             var playComposition = function() {
-                for (var i = 0; i < composition.length; i++) {
-                new Audio("https://github.com/MadelynGH/17393-Project/blob/main/note-" + composition[i] +
-                 ".wav?raw=true").play();
+                for (let i = 0; i < composition.length; i++) {
+                    var delay = 280;
+
+                    setTimeout(function() {
+                        new Audio("https://github.com/MadelynGH/17393-Project/blob/main/note-" + composition[i] +
+                        ".wav?raw=true").play();
+                    }, i * delay)
+
                 }
             }
             
