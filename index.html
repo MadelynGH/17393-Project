@@ -91,6 +91,36 @@
             #play-button:hover {
                 cursor: pointer;
             }
+
+            #rest-button-container {
+                display: flex;
+                justify-content: center;
+
+                width: 80vw;
+
+                border: 5px solid rgb(0, 201, 23);
+                border-radius: 3px;
+                padding: 20px;
+                margin: 20px;
+            }
+
+            .rest-button {
+                border-radius: 100%;
+                border-style: none;
+                margin: 15px;
+
+                font-family: 'Luckiest Guy', cursive;
+                font-size: 50px;
+
+                background-color: rgb(0, 201, 23);
+                color: white;
+
+                height: 20vh;
+            }
+
+            .rest-button:hover {
+                cursor: pointer;
+            }
         </style>
     </head>
 
@@ -112,6 +142,10 @@
             <button class="note-button" id="b5-note">B5</button>
         </div>
 
+        <div id="rest-button-container">
+            <button class="rest-button" id="quartrest">Quarter Rest</button>
+        </div>
+
         <div id="composition-container">
             <button id="play-button" onclick="playComposition();">PLAY</button>
             <h3 id="composition">Composition: </h3>
@@ -130,6 +164,8 @@
             var noteG4 = document.getElementById("g4-note");
             var noteA5 = document.getElementById("a5-note");
             var noteB5 = document.getElementById("b5-note");
+
+            var quartrest = document.getElementById("quartrest");
 
             var compositionContainer = document.getElementById("composition-container");
             var compositionDisplay = document.getElementById("composition");
@@ -163,6 +199,8 @@
             noteG4.addEventListener("click", function() {addNote("g4")});
             noteA5.addEventListener("click", function() {addNote("a5")});
             noteB5.addEventListener("click", function() {addNote("b5")});
+
+            quartrest.addEventListener("click", function() {addNote("quartrest")})
         </script>
     </body>
 </html>
