@@ -121,6 +121,25 @@
             .rest-button:hover {
                 cursor: pointer;
             }
+
+            #clear-button {
+                border-radius: 100%;
+                border-style: none;
+                margin: 15px;
+
+                font-family: 'Luckiest Guy', cursive;
+                font-size: 50px;
+
+                background-color: rgb(0, 201, 23);
+                color: white;
+
+                width: 20vh;
+                height: 20vh;
+            }
+
+            #clear-button:hover {
+                cursor: pointer;
+            }
         </style>
     </head>
 
@@ -148,6 +167,7 @@
 
         <div id="composition-container">
             <button id="play-button" onclick="playComposition();">PLAY</button>
+            <button id="clear-button" onclick="clearComposition();">CLEAR</button>
             <h3 id="composition">Composition: </h3>
         </div>
 
@@ -189,6 +209,11 @@
                     }, i * delay)
 
                 }
+            }
+
+            var clearComposition = function() {
+                composition.length = 0;
+                compositionDisplay.innerHTML = "Composition: ";
             }
             
             // add event listeners for each note to call the playNote function with the note as the paramater when the button is clicked
