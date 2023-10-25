@@ -31,6 +31,7 @@ body {
 #note-button-container {
     display: flex;
     justify-content: center;
+    flex-basis: 100%;
     
     border: 5px solid rgb(0, 201, 23);
     border-radius: 3px;
@@ -54,6 +55,9 @@ body {
 }
 
 #composition-container {
+    display: flex;
+    justify-content: center;
+    flex-basis: 100%;
 
     border: 5px solid rgb(0, 201, 23);
     border-radius: 3px;
@@ -83,6 +87,7 @@ body {
 #rest-button-container {
     display: flex;
     justify-content: center;
+    flex-basis: 100%;
 
     border: 5px solid rgb(0, 201, 23);
     border-radius: 3px;
