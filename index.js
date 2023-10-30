@@ -13,6 +13,9 @@
 
             const quartrest = document.getElementById("quartrest");
 
+            const playButton = document.getElementById("play-button");
+            const clearButton = document.getElementById("clear-button");
+
             const compositionContainer = document.getElementById("composition-container");
             const compositionDisplay = document.getElementById("composition");
             let composition = [];
@@ -52,3 +55,7 @@
             noteB5.addEventListener("click", function() {addNote("b5")});
 
             quartrest.addEventListener("click", function() {addNote("quartrest")})
+
+            playButton.addEventListener("click", function() {playComposition()});
+            clearButton.addEventListener("click", function() {clearComposition()});
+
