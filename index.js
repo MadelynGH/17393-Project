@@ -1,23 +1,23 @@
 
             // define the note buttons class as a whole
-            var noteButtons = document.getElementsByClassName("note-button");
+            const noteButtons = document.getElementsByClassName("note-button");
 
             // define each note button in the document
-            var noteC4 = document.getElementById("c4-note");
-            var noteD4 = document.getElementById("d4-note");
-            var noteE4 = document.getElementById("e4-note");
-            var noteF4 = document.getElementById("f4-note");
-            var noteG4 = document.getElementById("g4-note");
-            var noteA5 = document.getElementById("a5-note");
-            var noteB5 = document.getElementById("b5-note");
+            const noteC4 = document.getElementById("c4-note");
+            const noteD4 = document.getElementById("d4-note");
+            const noteE4 = document.getElementById("e4-note");
+            const noteF4 = document.getElementById("f4-note");
+            const noteG4 = document.getElementById("g4-note");
+            const noteA5 = document.getElementById("a5-note");
+            const noteB5 = document.getElementById("b5-note");
 
-            var quartrest = document.getElementById("quartrest");
+            const quartrest = document.getElementById("quartrest");
 
-            var compositionContainer = document.getElementById("composition-container");
-            var compositionDisplay = document.getElementById("composition");
-            var composition = [];
+            const compositionContainer = document.getElementById("composition-container");
+            const compositionDisplay = document.getElementById("composition");
+            let composition = [];
             
-            var addNote = function(note) {
+            const addNote = function(note) {
                 new Audio("https://github.com/MadelynGH/17393-Project/blob/main/note-" + note +
                  ".wav?raw=true").play();
 
@@ -25,7 +25,7 @@
                 composition.push(note);
             }
 
-            var playComposition = function() {
+            const playComposition = function() {
                 for (let i = 0; i < composition.length; i++) {
                     var delay = 300;
 
@@ -37,7 +37,7 @@
                 }
             }
 
-            var clearComposition = function() {
+            const clearComposition = function() {
                 composition.length = 0;
                 compositionDisplay.innerHTML = "Composition: ";
             }
