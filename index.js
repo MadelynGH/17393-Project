@@ -21,7 +21,7 @@
             let composition = [];
             
             const addNote = function(note) {
-                new Audio("https://github.com/MadelynGH/17393-Project/blob/main/note-" + note +
+                new Audio("audio/note-" + note +
                  ".wav?raw=true").play();
 
                 compositionDisplay.innerHTML += note + " ";
@@ -33,7 +33,7 @@
                     var delay = 300;
 
                     setTimeout(function() {
-                        new Audio("https://github.com/MadelynGH/17393-Project/blob/main/note-" + composition[i] +
+                        new Audio("audio/note-" + composition[i] +
                         ".wav?raw=true").play();
                     }, i * delay)
 
