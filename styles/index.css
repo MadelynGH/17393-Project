@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+body {
+    display: flex;
+    flex-flow: row wrap;
+    
+    font-family: 'Luckiest Guy', cursive;
+
+    justify-content: center;
+}
+
+.note-button {
+    border-radius: 100%;
+    border-style: none;
+    margin: 15px;
+
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 100px;
+
+    background-color: rgb(0, 201, 23);
+    color: white;
+
+    width: 20vh;
+    height: 20vh;
+}
+
+.note-button:hover {
+    cursor: pointer;
+}
+
+#note-button-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    flex-basis: 100%;
+    
+    border: 5px solid rgb(0, 201, 23);
+    border-radius: 3px;
+    padding: 20px;
+    margin: 20px;
+}
+
+#logo {
+    height: 400px;
+    margin: 50px;
+}
+
+.break {
+    height: 0;
+    flex-basis: 100%;
+}
+
+#composition {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 100px;
+}
+
+#composition-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    flex-basis: 100%;
+
+    border: 5px solid rgb(0, 201, 23);
+    border-radius: 3px;
+    padding: 20px;
+    margin: 20px;
+}
+
+#play-button {
+    border-radius: 100%;
+    border-style: none;
+    margin: 15px;
+
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 50px;
+
+    background-color: rgb(0, 201, 23);
+    color: white;
+
+    width: 20vh;
+    height: 20vh;
+}
+
+#play-button:hover {
+    cursor: pointer;
+}
+
+#rest-button-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    flex-basis: 100%;
+
+    border: 5px solid rgb(0, 201, 23);
+    border-radius: 3px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.rest-button {
+    border-radius: 100%;
+    border-style: none;
+    margin: 15px;
+
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 50px;
+
+    background-color: rgb(0, 201, 23);
+    color: white;
+
+    height: 20vh;
+}
+
+.rest-button:hover {
+    cursor: pointer;
+}
+
+#clear-button {
+    border-radius: 100%;
+    border-style: none;
+    margin: 15px;
+
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 50px;
+
+    background-color: rgb(0, 201, 23);
+    color: white;
+
+    width: 20vh;
+    height: 20vh;
+}
+
+#clear-button:hover {
+    cursor: pointer;
+}
