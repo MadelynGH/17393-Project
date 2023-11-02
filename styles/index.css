@@ -26,6 +26,7 @@ body {
 
 .note-button:hover {
     cursor: pointer;
+    background-color: #00b700;
 }
 
 #note-button-container {
@@ -86,6 +87,8 @@ body {
 
 #play-button:hover {
     cursor: pointer;
+
+    background-color: #00b700;
 }
 
 #rest-button-container {
@@ -116,6 +119,8 @@ body {
 
 .rest-button:hover {
     cursor: pointer;
+
+    background-color: #00b700;
 }
 
 #clear-button {
@@ -135,6 +140,8 @@ body {
 
 #clear-button:hover {
     cursor: pointer;
+
+    background-color: #00b700;
 }
 
 .link-button {
