@@ -67,11 +67,11 @@ const findNoteAtCoordinates = async function (x, y) {
 
         if (y > topSide & y < bottomSide & x > leftSide & x < rightSide) {
             new Promise ((resolve) => {
-                setTimeout(function() {  }, 1000); 
+                setTimeout(function() {             
+                    if (y > topSide & y < bottomSide & x > leftSide & x < rightSide) {
+                    callAddNote(clickableButtons[i]);
+                } }, 1000); 
             });
-            if (y > topSide & y < bottomSide & x > leftSide & x < rightSide) {
-                callAddNote(clickableButtons[i]);
-            }
         }
     }
 }
@@ -110,9 +110,9 @@ const callAddNote = function(noteOrRest) {
     } else if (noteOrRest.id.includes("rest")) { // If this returns true, the given parameter is a rest.
         soundToPlay = noteOrRest.id;
         addNote(soundToPlay);
-    } else if (noteOrRest.id == ("play-button")) {
+    } else if (noteOrRest.id == "play-button") {
         playComposition();
-    } else if (noteOrRest.id == ("clear-button")) {
+    } else if (noteOrRest.id == "clear-button") {
         clearComposition();
     }
 
