@@ -147,3 +147,16 @@ body {
 #try-it-out:hover {
     padding-bottom: 1px;
 }
+
+#start-eye-tracking {
+    text-decoration: none;
+    border-bottom: 3px solid #75e462;
+    padding-bottom: 0px;
+    color: #75e462;
+}
+
+#start-eye-tracking:hover {
+    padding-bottom: 1px;
+
+    cursor: pointer;
+}

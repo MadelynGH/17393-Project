@@ -16,6 +16,8 @@ const quartrest = document.getElementById("quartrest");
 const playButton = document.getElementById("play-button");
 const clearButton = document.getElementById("clear-button");
 
+const startEyeTracking = document.getElementById("start-eye-tracking");
+
 const clickableButtons = [noteC4, noteD4, noteE4, noteF4, noteG4, noteA5, noteB5, quartrest, playButton, clearButton];
 
 const compositionContainer = document.getElementById("composition-container");
@@ -132,5 +134,6 @@ window.addEventListener("load", function() {
 
     playButton.addEventListener("click", function() {playComposition()});
     clearButton.addEventListener("click", function() {clearComposition()})
-    eyeTracking();
+
+    startEyeTracking.addEventListener("click", function() {eyeTracking();})
 });
