@@ -136,3 +136,14 @@ body {
 #clear-button:hover {
     cursor: pointer;
 }
+
+#try-it-out {
+    text-decoration: none;
+    border-bottom: 3px solid #75e462;
+    padding-bottom: 0px;
+    color: #75e462;
+}
+
+#try-it-out:hover {
+    padding-bottom: 1px;
+}
