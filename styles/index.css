@@ -53,6 +53,8 @@ body {
 #composition {
     font-family: 'Luckiest Guy', cursive;
     font-size: 100px;
+    color: black;
+    line-height: 115px;
 }
 
 #composition-container {

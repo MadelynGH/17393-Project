@@ -11,12 +11,14 @@ const noteG4 = document.getElementById("g4-note");
 const noteA5 = document.getElementById("a5-note");
 const noteB5 = document.getElementById("b5-note");
 
- const quartrest = document.getElementById("quartrest");
+const quartrest = document.getElementById("quartrest");
 
- const playButton = document.getElementById("play-button");
+const playButton = document.getElementById("play-button");
 const clearButton = document.getElementById("clear-button");
 
- const compositionContainer = document.getElementById("composition-container");
+const clickableButtons = [noteC4, noteD4, noteE4, noteF4, noteG4, noteA5, noteB5, quartrest, playButton, clearButton];
+
+const compositionContainer = document.getElementById("composition-container");
 const compositionDisplay = document.getElementById("composition");
 let composition = [];
 
@@ -45,28 +47,90 @@ const addNote = function(note) {
     compositionDisplay.innerHTML = "Composition: ";
 }
 
-// add event listeners for each note to call the playNote function with the note as the paramater when the button is clicked
-noteC4.addEventListener("click", function() {addNote("c4")});
-noteD4.addEventListener("click", function() {addNote("d4")});
-noteE4.addEventListener("click", function() {addNote("e4")});
-noteF4.addEventListener("click", function() {addNote("f4")});
-noteG4.addEventListener("click", function() {addNote("g4")});
-noteA5.addEventListener("click", function() {addNote("a5")});
-noteB5.addEventListener("click", function() {addNote("b5")});
+let buttonRect;
+let topSide;
+let bottomSide;
+let leftSide;
+let rightSide;
+const findNoteAtCoordinates = async function (x, y) {
+    
+    for (let i = 0; i < clickableButtons.length; i++) {
+        buttonRect = clickableButtons[i].getBoundingClientRect();
+        topSide = buttonRect.top;
+        bottomSide = buttonRect.bottom;
+        leftSide = buttonRect.left;
+        rightSide = buttonRect.right;
+        
+        console.log(clickableButtons[i].innerHTML + "'s coordinates are: top side: " + topSide + ", left side: " + leftSide);
 
-quartrest.addEventListener("click", function() {addNote("quartrest")})
+        if (y > topSide & y < bottomSide & x > leftSide & x < rightSide) {
+            new Promise ((resolve) => {
+                setTimeout(function() {  }, 1000); 
+            });
+            if (y > topSide & y < bottomSide & x > leftSide & x < rightSide) {
+                callAddNote(clickableButtons[i]);
+            }
+        }
+    }
+}
 
-playButton.addEventListener("click", function() {playComposition()});
-clearButton.addEventListener("click", function() {clearComposition()})
+// Gaze Eye Tracking
+const eyeTracking = function() {
+        
+    GazeCloudAPI.OnCalibrationComplete = function(){ShowHeatMap(); 
+        console.log('gaze Calibration Complete')  ;
+    }
 
-// webgazer
-webgazer.setGazeListener(function(data, elapsedTime) {
-	if (data == null) {
-		return;
-	}
-	const xprediction = data.x; //these x coordinates are relative to the viewport
-	const yprediction = data.y; //these y coordinates are relative to the viewport
-	console.log(elapsedTime); //elapsed time is based on time since begin was called
-    console.log("x: " + xprediction + " y: " + yprediction);
-}).begin();
-		
+    GazeCloudAPI.OnCamDenied =  function(){ console.log('camera  access denied')  }
+    GazeCloudAPI.OnError =  function(msg){ console.log('err: ' + msg)  }
+    GazeCloudAPI.UseClickRecalibration = true;
+            
+    GazeCloudAPI.OnResult = function (GazeData) { 
+        if (GazeData.state === 0) {
+            GazeData.state // 0: valid gaze data; -1 : face tracking lost, 1 : gaze data uncalibrated 
+            //GazeData.docX // gaze x in document coordinates 
+            //GazeData.docY // gaze y in document coordinates 
+            GazeData.time // timestamp
+            console.log("x: " + GazeData.GazeX + "y: " + GazeData.GazeY);
+    
+            findNoteAtCoordinates(GazeData.docX, GazeData.docY);
+        }
+    }
+
+    GazeCloudAPI.StartEyeTracking();
+}
+
+let soundToPlay;
+const callAddNote = function(noteOrRest) {
+    if (noteOrRest.id.includes("note")) { // If this returns true, the given parameter is a note.
+        soundToPlay = noteOrRest.id.replace("-note", "");
+        addNote(soundToPlay);
+    } else if (noteOrRest.id.includes("rest")) { // If this returns true, the given parameter is a rest.
+        soundToPlay = noteOrRest.id;
+        addNote(soundToPlay);
+    } else if (noteOrRest.id == ("play-button")) {
+        playComposition();
+    } else if (noteOrRest.id == ("clear-button")) {
+        clearComposition();
+    }
+
+}
+
+window.addEventListener("load", function() {
+
+
+    // add event listeners for each note to call the playNote function with the note as the paramater when the button is clicked
+    noteC4.addEventListener("click", function() {callAddNote(noteC4);});
+    noteD4.addEventListener("click", function() {callAddNote(noteD4);});
+    noteE4.addEventListener("click", function() {callAddNote(noteE4);});
+    noteF4.addEventListener("click", function() {callAddNote(noteF4);});
+    noteG4.addEventListener("click", function() {callAddNote(noteG4);});
+    noteA5.addEventListener("click", function() {callAddNote(noteA5);});
+    noteB5.addEventListener("click", function() {callAddNote(noteB5);});
+
+    quartrest.addEventListener("click", function() {callAddNote(quartrest);})
+
+    playButton.addEventListener("click", function() {playComposition()});
+    clearButton.addEventListener("click", function() {clearComposition()})
+    eyeTracking();
+});
