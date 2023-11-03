@@ -12,7 +12,7 @@ const logIn = function() {
 };
 
 const accountAlreadyExists = function() {
-    document.getElementById("text-container").innerHTML = '<p class="luckiest-guy" id="account-already-exists">Good news -- you already have an account! <a href="/login.html">Log in</a></p>';
+    document.getElementById("text-container").innerHTML = '<p class="luckiest-guy" id="account-already-exists">Good news -- you already have an account! <a href="login.html" style="text-decoration: none; color: rgb(4, 255, 0);">Log in</a></p>';
 };
 
 const submitInfo = function() {
