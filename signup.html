@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sign up to save your compositions!</title>
+        <link rel="icon" type="image/x-icon" href="images/FLLC 17393 Favicon Idea.png">
+
+        <link rel="stylesheet" type="text/css" href="styles/signup.css">
+    </head>
+    <body>
+        <div id="login-container">
+
+            <div id="logo-container">
+                <img src="images/FLLC 17393 Logo.png" id="logo">
+            </div>
+
+            <div class="break"></div>
+
+            <h1 class="luckiest-guy">Sign up</h1>
+
+            <div class="break"></div>
+            
+            <div id="textboxes">
+                <div class="textbox-full-container">
+                    <div class="textbox-label-container">
+                        <label for="username-textbox" class="luckiest-guy textbox-label">Username</label>
+                    </div>
+                    <div class="break"></div>
+                    <input type="text" class="luckiest-guy" id="username-textbox">
+                </div>
+    
+                <div class="break"></div>
+    
+                <div class="textbox-full-container">
+                    <div class="textbox-label-container">
+                        <label for="password-textbox" class="luckiest-guy textbox-label">Password</label>
+                    </div>
+                    <div class="break"></div>
+                    <input type="password" class="luckiest-guy" id="password-textbox">
+                </div>
+
+                <div class="textbox-full-container">
+                    <div class="textbox-label-container">
+                        <label for="password-conformation-textbox" class="luckiest-guy textbox-label">Confirm Password</label>
+                    </div>
+                    <div class="break"></div>
+                    <input type="password" class="luckiest-guy" id="password-conformation-textbox">
+                </div>
+            </div>
+
+            <div class="break"></div>
+
+            <div id="button-container">
+                <button id="submit-button" class="luckiest-guy">Sign up</button>
+            </div>
+
+            <div class="break"></div>
+
+            <div id="text-container"></div>
+
+            </div>
+
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
+        <script src="scripts/signup.js" type="module"></script>
+    </body>
+</html>

@@ -1,3 +1,6 @@
+if (document.cookie.indexOf("loggedIn=true") === -1) { // If that condition is true, that means the user is NOT logged in.
+    location.replace("/");
+};
 
 // define the note buttons class as a whole
 const noteButtons = document.getElementsByClassName("note-button");
@@ -28,7 +31,12 @@ const addNote = function(note) {
     new Audio("audio/note-" + note +
      ".wav?raw=true").play();
 
-     compositionDisplay.innerHTML += note + " ";
+    compositionDisplay.innerHTML += note + " ";
+    composition.push(note);
+}
+
+const addNoteWithoutSound = function(note) {
+    compositionDisplay.innerHTML += note + " ";
     composition.push(note);
 }
 
