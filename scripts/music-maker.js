@@ -1,5 +1,5 @@
 if (document.cookie.indexOf("loggedIn=true") === -1) { // If that condition is true, that means the user is NOT logged in.
-    location.replace("/");
+    location.replace("/17393-Project");
 };
 
 // define the note buttons class as a whole
