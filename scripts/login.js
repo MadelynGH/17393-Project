@@ -3,12 +3,12 @@ import db from "./firebase.js";
 let submitButton = document.getElementById("submit-button");
 
 if (!(document.cookie.indexOf("loggedIn=true") === -1)) { // If that condition is true, that means the user IS logged in.
-    location.replace("/music-maker.html");
+    location.replace("music-maker.html");
 };
 
 const logIn = function() {
     document.cookie = "loggedIn=true; path=/";
-    location.replace("/music-maker.html");
+    location.replace("music-maker.html");
 };
 
 const infoIsWrong = function() {
