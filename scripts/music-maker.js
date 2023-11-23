@@ -1,6 +1,7 @@
-if (document.cookie.indexOf("loggedIn=true") === -1) { // If that condition is true, that means the user is NOT logged in.
-    location.replace("/17393-Project");
-};
+/* if (document.cookie.indexOf("loggedIn=true") === -1) { // If that condition is true, that means the user is NOT logged in.
+    location.replace("/");
+}; Only because I'm disabling this for now. */
+
 
 // define the note buttons class as a whole
 const noteButtons = document.getElementsByClassName("note-button");
@@ -74,12 +75,16 @@ const findNoteAtCoordinates = async function (x, y) {
         console.log(clickableButtons[i].innerHTML + "'s coordinates are: top side: " + topSide + ", left side: " + leftSide);
 
         if (y > topSide & y < bottomSide & x > leftSide & x < rightSide) {
-            new Promise ((resolve) => {
+
+            if (y > topSide & y < bottomSide & x > leftSide & x < rightSide) {
+                callAddNote(clickableButtons[i]);
+
+            /* new Promise ((resolve) => {
                 setTimeout(function() {             
-                    if (y > topSide & y < bottomSide & x > leftSide & x < rightSide) {
-                    callAddNote(clickableButtons[i]);
-                } }, 1000); 
-            });
+
+                }, 1000); 
+            }); */
+            }
         }
     }
 }

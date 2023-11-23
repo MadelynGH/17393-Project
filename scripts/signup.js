@@ -1,3 +1,5 @@
+location.replace("music-maker.html"); // Only because I'm disabling this for now.
+
 import db from "./firebase.js";
 
 let submitButton = document.getElementById("submit-button");
