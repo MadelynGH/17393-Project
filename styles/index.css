@@ -60,6 +60,7 @@ body {
 
 #composition-container {
     display: flex;
+    align-items: center;
     flex-flow: row wrap;
     justify-content: center;
     flex-basis: 100%;
@@ -70,7 +71,7 @@ body {
     margin: 20px;
 }
 
-#play-button {
+.control-button {
     border-radius: 100%;
     border-style: none;
     margin: 15px;
@@ -85,7 +86,7 @@ body {
     height: 20vh;
 }
 
-#play-button:hover {
+.control-button:hover {
     cursor: pointer;
 
     background-color: #00b700;
@@ -104,23 +105,8 @@ body {
 }
 
 .rest-button {
-    border-radius: 100%;
-    border-style: none;
-    margin: 15px;
-
-    font-family: 'Luckiest Guy', cursive;
-    font-size: 50px;
-
-    background-color: rgb(0, 201, 23);
-    color: white;
-
-    height: 20vh;
-}
-
-.rest-button:hover {
-    cursor: pointer;
-
-    background-color: #00b700;
+    font-size: 70px; 
+    line-height: 50px;
 }
 
 #clear-button {
@@ -157,4 +143,37 @@ body {
     border-bottom: 3px solid rgb(0, 201, 23);
 
     cursor: pointer;
+}
+
+input {
+    padding: 8px;
+    background-color: white;
+    color: rgb(0, 201, 23);
+    font-family: 'Luckiest Guy', cursive;
+    border: 3px solid rgb(0, 201, 23);
+}
+
+input:focus {
+    outline: none;
+    background-color: rgb(0, 201, 23);
+    color: white;
+}
+
+p {
+    color: black;
+}
+
+label[for="load-input"] {
+    color: black;
+    margin-right: 10px;
+    user-select: none;
+}
+
+#composition-save-text-div {
+    display: flex;
+    align-items: center;
+
+    border-left: 3px dashed rgb(0, 201, 23);
+    padding-left: 10px;
+    height: 20vh;
 }

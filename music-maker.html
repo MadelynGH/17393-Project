@@ -20,15 +20,23 @@
             <button class="note-button" id="g4-note">G4</button>
             <button class="note-button" id="a5-note">A5</button>
             <button class="note-button" id="b5-note">B5</button>
-        </div>
-
-        <div id="rest-button-container">
-            <button class="rest-button" id="quartrest">Quarter Rest</button>
+            <button class="note-button rest-button" id="quartrest">&#x1D13D; <br> <span style="font-size: 30px;">Rest</span></button>
         </div>
 
         <div id="composition-container">
-            <button id="play-button">PLAY</button>
-            <button id="clear-button">CLEAR</button>
+            <p id="composition-save-text"></p>
+            <div class="break"></div>
+
+            <button id="play-button" class="control-button">PLAY</button>
+            <button id="clear-button" class="control-button">CLEAR</button>
+            <button id="save-button" class="control-button">SAVE</button>
+
+            <div id="composition-save-text-div">
+                <label for="load-input">Saved Composition:</label>
+                <input type="text" id="load-input">
+            </div>
+
+            <button id="load-button" class="control-button">LOAD</button>
 
             <div class="break"></div>
             

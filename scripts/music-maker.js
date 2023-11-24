@@ -19,6 +19,10 @@ const quartrest = document.getElementById("quartrest");
 
 const playButton = document.getElementById("play-button");
 const clearButton = document.getElementById("clear-button");
+const saveButton = document.getElementById("save-button");
+const loadButton = document.getElementById("load-button");
+const loadInput = document.getElementById("load-input");
+const compositionSaveText = document.getElementById("composition-save-text");
 
 const startEyeTracking = document.getElementById("start-eye-tracking");
 
@@ -131,6 +135,23 @@ const callAddNote = function(noteOrRest) {
 
 }
 
+const saveComposition = function() {
+    navigator.clipboard.writeText(JSON.stringify(composition));
+
+    compositionSaveText.innerHTML = "Your composition has been copied to your clipboard!";
+    setTimeout(function() {compositionSaveText.innerHTML = "";}, 1000)
+}
+
+const loadComposition = function() {
+    composition = JSON.parse(loadInput.value);
+
+    compositionDisplay.innerHTML = "Composition: ";
+
+    for (i = 0; i < composition.length; i++) {
+        compositionDisplay.innerHTML += composition[i] + " ";
+    }
+}
+
 window.addEventListener("load", function() {
 
 
@@ -147,6 +168,8 @@ window.addEventListener("load", function() {
 
     playButton.addEventListener("click", function() {playComposition()});
     clearButton.addEventListener("click", function() {clearComposition()});
+    saveButton.addEventListener("click", function() {saveComposition()});
+    loadButton.addEventListener("click", function() {loadComposition()});
 
     startEyeTracking.addEventListener("click", function() {eyeTracking()});
 });
