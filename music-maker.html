@@ -27,8 +27,8 @@
             <p id="composition-save-text"></p>
             <div class="break"></div>
 
-            <button id="play-button" class="control-button">PLAY</button>
-            <button id="clear-button" class="control-button">CLEAR</button>
+            <button id="play-button" class="control-button icon-button">&#x25B6;</button>
+            <button id="clear-button" class="control-button icon-button">&#x1F5D1;</button>
             <button id="save-button" class="control-button">SAVE</button>
 
             <div id="composition-save-text-div">
@@ -46,6 +46,9 @@
         <script src="https://api.gazerecorder.com/GazeCloudAPI.js" ></script>
         <script src="https://api.gazerecorder.com/heatmapLive.js" ></script>
 
-        <script src="scripts/music-maker.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
+
+        <script src="scripts/music-maker.js" type="module"></script>
     </body>
 </html>

@@ -2,6 +2,7 @@
     location.replace("/");
 }; Only because I'm disabling this for now. */
 
+import db from "./firebase.js";
 
 // define the note buttons class as a whole
 const noteButtons = document.getElementsByClassName("note-button");
@@ -138,7 +139,7 @@ const callAddNote = function(noteOrRest) {
 const saveComposition = function() {
     navigator.clipboard.writeText(JSON.stringify(composition));
 
-    compositionSaveText.innerHTML = "Your composition has been copied to your clipboard!";
+    compositionSaveText.innerHTML = "Composition copied to your clipboard!";
     setTimeout(function() {compositionSaveText.innerHTML = "";}, 1000)
 }
 
@@ -147,9 +148,23 @@ const loadComposition = function() {
 
     compositionDisplay.innerHTML = "Composition: ";
 
-    for (i = 0; i < composition.length; i++) {
+    for (let i = 0; i < composition.length; i++) {
         compositionDisplay.innerHTML += composition[i] + " ";
     }
+
+    loadInput.value = "";
+
+    /* db.collection("compositions")
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            console.log(doc.data().composition);
+        });
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    }); */
+
 }
 
 window.addEventListener("load", function() {
