@@ -4,6 +4,8 @@
 
 import db from "./firebase.js";
 
+let compositionCurrentlyPlaying = false;
+
 // define the note buttons class as a whole
 const noteButtons = document.getElementsByClassName("note-button");
 
@@ -27,7 +29,7 @@ const compositionSaveText = document.getElementById("composition-save-text");
 
 const startEyeTracking = document.getElementById("start-eye-tracking");
 
-const clickableButtons = [noteC4, noteD4, noteE4, noteF4, noteG4, noteA5, noteB5, quartrest, playButton, clearButton];
+const clickableButtons = [startEyeTracking, noteC4, noteD4, noteE4, noteF4, noteG4, noteA5, noteB5, quartrest, playButton, clearButton, saveButton, loadButton];
 
 const compositionContainer = document.getElementById("composition-container");
 const compositionDisplay = document.getElementById("composition");
@@ -46,16 +48,19 @@ const addNoteWithoutSound = function(note) {
     composition.push(note);
 }
 
- const playComposition = function() {
-    for (let i = 0; i < composition.length; i++) {
-        var delay = 300;
+const delay = 300;
+const playComposition = function() {
+    if (!compositionCurrentlyPlaying) {
+        compositionCurrentlyPlaying = true;
 
-         setTimeout(function() {
-            new Audio("audio/note-" + composition[i] +
-            ".wav?raw=true").play();
-        }, i * delay)
-
-     }
+        for (let i = 0; i < composition.length; i++) {
+            setTimeout(function() {
+                new Audio("audio/note-" + composition[i] +
+                ".wav?raw=true").play();
+            }, i * delay)
+        }
+        setTimeout(function() {compositionCurrentlyPlaying = false;}, composition.length * delay);
+    }
 }
 
  const clearComposition = function() {
@@ -124,10 +129,18 @@ let soundToPlay;
 const callAddNote = function(noteOrRest) {
     if (noteOrRest.id.includes("note")) { // If this returns true, the given parameter is a note.
         soundToPlay = noteOrRest.id.replace("-note", "");
-        addNote(soundToPlay);
+        if (compositionCurrentlyPlaying) {
+            addNoteWithoutSound(soundToPlay);
+        } else {
+            addNote(soundToPlay);
+        }
     } else if (noteOrRest.id.includes("rest")) { // If this returns true, the given parameter is a rest.
         soundToPlay = noteOrRest.id;
-        addNote(soundToPlay);
+        if (compositionCurrentlyPlaying) {
+            addNoteWithoutSound(soundToPlay);
+        } else {
+            addNote(soundToPlay);
+        }
     } else if (noteOrRest.id == "play-button") {
         playComposition();
     } else if (noteOrRest.id == "clear-button") {
