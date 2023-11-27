@@ -64,6 +64,8 @@ const playComposition = function() {
 }
 
  const clearComposition = function() {
+    new Audio("/audio/clear-sound.wav").play();
+
     composition.length = 0;
     compositionDisplay.innerHTML = "Composition: ";
 }
@@ -150,6 +152,8 @@ const callAddNote = function(noteOrRest) {
 }
 
 const saveComposition = function() {
+    new Audio("/audio/save-sound.mp3").play();
+
     navigator.clipboard.writeText(JSON.stringify(composition));
 
     compositionSaveText.innerHTML = "Composition copied to your clipboard!";
@@ -157,6 +161,8 @@ const saveComposition = function() {
 }
 
 const loadComposition = function() {
+    new Audio("/audio/load-sound.mp3").play();
+
     composition = JSON.parse(loadInput.value);
 
     compositionDisplay.innerHTML = "Composition: ";
