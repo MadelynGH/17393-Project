@@ -163,17 +163,23 @@ const saveComposition = function() {
 const loadComposition = function() {
     new Audio("/audio/load-sound.mp3").play();
 
-    composition = JSON.parse(loadInput.value);
+    navigator.clipboard.readText()
+        .then((text) => {
+            composition = JSON.parse(text);
 
-    compositionDisplay.innerHTML = "Composition: ";
+            compositionDisplay.innerHTML = "Composition: ";
 
-    for (let i = 0; i < composition.length; i++) {
-        compositionDisplay.innerHTML += composition[i] + " ";
-    }
+            for (let i = 0; i < composition.length; i++) {
+                compositionDisplay.innerHTML += composition[i] + " ";
+            }
+        })
+        .catch((error) => {
+            console.log("Loading unsucessful because: " + error);
+        });
 
-    loadInput.value = "";
+    /*loadInput.value = "";
 
-    /* db.collection("compositions")
+    db.collection("compositions")
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
