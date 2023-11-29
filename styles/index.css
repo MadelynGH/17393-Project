@@ -126,7 +126,7 @@ body {
     margin: 20px;
 }
 
-.rest-button {
+.icon-text-button {
     font-size: 70px; 
     line-height: 50px;
 }
@@ -183,15 +183,7 @@ label[for="load-input"] {
     font-size: 100px;
 }
 
-.add-icon {
-    font-size: 30px;
-}
 
 .with-add-icon {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: flex-end;
-    line-height: 0;
-    padding-bottom: 30px;
+    font-size: 50px;
 }
