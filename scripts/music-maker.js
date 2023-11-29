@@ -35,16 +35,23 @@ const compositionContainer = document.getElementById("composition-container");
 const compositionDisplay = document.getElementById("composition");
 let composition = [];
 
+const replacePlainQuarterRestWithSymbol = function() {
+    compositionDisplay.innerHTML = compositionDisplay.innerHTML.replaceAll("quartrest", "&#x1D13D;<span style='font-size: 7cqb;'>REST</span>");
+}
+
 const addNote = function(note) {
     new Audio("audio/note-" + note +
      ".wav?raw=true").play();
 
     compositionDisplay.innerHTML += note + " ";
+    replacePlainQuarterRestWithSymbol();
+
     composition.push(note);
 }
 
 const addNoteWithoutSound = function(note) {
     compositionDisplay.innerHTML += note + " ";
+
     composition.push(note);
 }
 
@@ -172,6 +179,8 @@ const loadComposition = function() {
             for (let i = 0; i < composition.length; i++) {
                 compositionDisplay.innerHTML += composition[i] + " ";
             }
+
+            compositionDisplay.innerHTML = compositionDisplay.innerHTML.replaceAll("quartrest", "&#x1D13D;")
         })
         .catch((error) => {
             console.log("Loading unsucessful because: " + error);
