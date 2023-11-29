@@ -31,7 +31,7 @@ body {
     margin: 15px;
 
     font-family: 'Luckiest Guy', cursive;
-    font-size: 100px;
+    font-size: 13cqb;
 
     background-color: rgb(14, 223, 133);
     color: white;
@@ -127,7 +127,7 @@ body {
 }
 
 .icon-text-button {
-    font-size: 70px; 
+    font-size: 70px;
     line-height: 50px;
 }
 
@@ -180,10 +180,10 @@ label[for="load-input"] {
 }
 
 .icon-button {
-    font-size: 100px;
+    font-size: 14cqb;
 }
 
 
 .with-add-icon {
-    font-size: 50px;
+    font-size: 7cqb;
 }
