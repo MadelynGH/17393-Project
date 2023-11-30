@@ -31,7 +31,7 @@ body {
     margin: 15px;
 
     font-family: 'Luckiest Guy', cursive;
-    font-size: 13cqb;
+    font-size: 13vh;
 
     background-color: rgb(14, 223, 133);
     color: white;
@@ -98,7 +98,7 @@ body {
     margin: 15px;
 
     font-family: 'Luckiest Guy', cursive;
-    font-size: 50px;
+    font-size: 13vh;
 
     background-color: rgb(14, 223, 133);
     color: white;
@@ -127,8 +127,8 @@ body {
 }
 
 .icon-text-button {
-    font-size: 70px;
-    line-height: 50px;
+    font-size: 10vh;
+    line-height: 7vh;
 }
 
 .link-button {
@@ -180,10 +180,10 @@ label[for="load-input"] {
 }
 
 .icon-button {
-    font-size: 14cqb;
+    font-size: 14vh;
 }
 
 
 .with-add-icon {
-    font-size: 7cqb;
+    font-size: 7vh;
 }

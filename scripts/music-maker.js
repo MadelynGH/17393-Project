@@ -36,7 +36,7 @@ const compositionDisplay = document.getElementById("composition");
 let composition = [];
 
 const replacePlainQuarterRestWithSymbol = function() {
-    compositionDisplay.innerHTML = compositionDisplay.innerHTML.replaceAll("quartrest", "&#x1D13D;<span style='font-size: 7cqb;'>REST</span>");
+    compositionDisplay.innerHTML = compositionDisplay.innerHTML.replaceAll("quartrest", "&#x1D13D;<span style='font-size: 7vh;'>REST</span>");
 }
 
 const addNote = function(note) {
