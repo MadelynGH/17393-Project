@@ -30,9 +30,10 @@ body {
     border-style: none;
     margin: 15px;
 
-    background-color: rgb(14, 223, 133);
-    width: 20vh;
-    height: 20vh;
+    /*background-color: rgb(14, 223, 133);*/
+    background-color: rgb(80, 14, 223);
+    width: 150px;
+    height: 150px;
 
     display: flex;
     align-items: center;
