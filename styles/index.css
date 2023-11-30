@@ -25,7 +25,7 @@ body {
     opacity: 10%;
 }*/
 
-.note-button {
+.note-button, .control-button {
     border-radius: 100%;
     border-style: none;
     margin: 15px;
@@ -33,6 +33,10 @@ body {
     background-color: rgb(14, 223, 133);
     width: 20vh;
     height: 20vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .note-button:hover {
@@ -95,7 +99,7 @@ body {
     margin-top: 0px;
 }
 
-.control-button {
+/* .control-button {
     border-radius: 100%;
     border-style: none;
     margin: 15px;
@@ -108,7 +112,7 @@ body {
 
     width: 20vh;
     height: 20vh;
-}
+} */
 
 .control-button:hover {
     cursor: pointer;
