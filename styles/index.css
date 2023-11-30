@@ -47,11 +47,21 @@ body {
 }
 
 
-.note-text {
+.note-text, .note-text {
     font-family: 'Luckiest Guy', cursive;
     font-size: 10vh;
 
     color: white;
+}
+#quartrest {
+    display: block;
+}
+#quartrest .note-text {
+    font-size: 5vh;
+    line-height: 0.8em;
+}
+#quartrest img {
+    height: 7vh;
 }
 
 #note-button-container {
@@ -134,10 +144,6 @@ body {
     margin: 20px;
 }
 
-.icon-text-button {
-    font-size: 4em;
-    line-height: 0.8em;
-}
 
 .link-button {
     text-decoration: none;
