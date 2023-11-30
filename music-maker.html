@@ -8,7 +8,7 @@
         <title>17393 Project</title>
         <link rel="icon" type="image/x-icon" href="images/FLLC 17393 Favicon Idea.png">
 
-        <link rel="stylesheet" type="text/css" href="styles/index.css?v2">
+        <link rel="stylesheet" type="text/css" href="styles/index.css?v3">
     </head>
     <body>
         <div id="background-image"></div>
@@ -25,16 +25,16 @@
             <button class="note-button" id="g4-note"><span class="note-text">G4</span></button>
             <button class="note-button" id="a5-note"><span class="note-text">A5</span></button>
             <button class="note-button" id="b5-note"><span class="note-text">B5</span></button>
-            <button class="note-button icon-text-button" id="quartrest"><span class="note-text">&#x1D13D; <br> <span style="font-size: 5cqb;">Rest</span></span></button>
+            <button class="note-button with-add-icon" id="quartrest"><span class="note-text"><img src="/images/rest-white.svg" class="quartrest-symbol"> <br> <span>REST</span></span></button>
         </div>
 
         <div id="composition-container">
             <p id="composition-save-text"></p>
             <div class="break"></div>
 
-            <button id="play-button" class="control-button icon-button"><span class="note-text">&#x25B6;</span></button>
-            <button id="clear-button" class="control-button icon-button"><span class="note-text">&#x1F5D1;</span></button>
-            <button class="note-button with-add-icon" id="save-button"><span class="note-text">&#10697; <br> <span style="font-size: 5cqb;">SAVE</span></span></button>
+            <button id="play-button" class="control-button icon-button"><span class="note-text icon-text">&#x25B6;</span></button>
+            <button id="clear-button" class="control-button icon-button"><span class="note-text icon-text">&#x1F5D1;</span></button>
+            <button class="note-button with-add-icon" id="save-button"><span class="note-text">&#10697; <br> <span>SAVE</span></span></button>
 
             <!--<button id="save-button" class="control-button with-add-icon">SAVE <br> <span class="add-icon">&#10697;</span></button>
 
@@ -45,7 +45,7 @@
 
             <button id="load-button" class="control-button with-add-icon">LOAD <br> <span class="add-icon">&#128203;</span></button>-->
 
-            <button class="note-button with-add-icon" id="load-button"><span class="note-text">&#128203; <br> <span style="font-size: 5cqb;">LOAD</span></span></button>
+            <button class="note-button with-add-icon" id="load-button"><span class="note-text">&#128203; <br> <span >LOAD</span></span></button>
 
             <div class="break"></div>
             
@@ -58,6 +58,6 @@
         <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
         <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
 
-        <script src="scripts/music-maker.js?v1" type="module"></script>
+        <script src="scripts/music-maker.js?v3" type="module"></script>
     </body>
 </html>
