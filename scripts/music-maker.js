@@ -180,7 +180,7 @@ const loadComposition = function() {
                 compositionDisplay.innerHTML += composition[i] + " ";
             }
 
-            compositionDisplay.innerHTML = compositionDisplay.innerHTML.replaceAll("quartrest", "&#x1D13D;")
+            replacePlainQuarterRestWithSymbol();
         })
         .catch((error) => {
             console.log("Loading unsucessful because: " + error);
