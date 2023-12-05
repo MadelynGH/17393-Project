@@ -2,6 +2,10 @@
 
 /* The old color was rgb(0, 201, 23) */
 
+:root {
+    --prettygreen: rgb(14, 223, 133);
+}
+
 * {
     z-index: 1;
 }
@@ -30,7 +34,7 @@ body {
     border-style: none;
     margin: 15px;
 
-    background-color: rgb(14, 223, 133);
+    /*background-color: var(--prettygreen);*/
     /*background-color: rgb(223, 14, 202);*/
     width: 150px;
     height: 150px;
@@ -40,12 +44,47 @@ body {
     justify-content: center;
 }
 
+.control-button, .with-add-icon:not(#quartrest) {
+    background-color: var(--prettygreen);
+}
+
 .note-button:hover {
     cursor: pointer;
     /*background-color: #00b700;*/
     box-shadow: 1px 1px 15px 30px rgb(220, 255, 240);
 }
 
+#c4-note {
+    background-color: rgb(255, 0, 0);
+}
+
+#d4-note {
+    background-color: rgb(255, 149, 0);
+}
+
+#e4-note {
+    background-color: rgb(0, 184, 9);
+}
+
+#f4-note {
+    background-color: rgb(52, 197, 255);
+}
+
+#g4-note {
+    background-color: rgb(0, 190, 184);
+}
+
+#a5-note {
+    background-color: rgb(29, 122, 119);
+}
+
+#b5-note {
+    background-color: rgb(147, 147, 255);
+}
+
+#quartrest {
+    background-color: rgb(232, 147, 255);
+}
 
 .note-text {
     font-family: 'Luckiest Guy', cursive;
@@ -60,7 +99,7 @@ body {
     justify-content: center;
     flex-basis: 100%;
     
-    border: 5px solid rgb(14, 223, 133);
+    border: 5px solid var(--prettygreen);
     border-radius: 3px;
     margin: 20px;
     margin-top: 10px;
@@ -84,6 +123,10 @@ body {
     line-height: 115px;
 }
 
+.beginning-of-composition-display {
+    user-select: none;
+}
+
 #composition-container {
     display: flex;
     align-items: center;
@@ -91,7 +134,7 @@ body {
     justify-content: center;
     flex-basis: 100%;
 
-    border: 5px solid rgb(14, 223, 133);
+    border: 5px solid var(--prettygreen);
     border-radius: 3px;
     padding: 20px;
     margin: 20px;
@@ -107,7 +150,7 @@ body {
     font-family: 'Luckiest Guy', cursive;
     font-size: 6em;
 
-    background-color: rgb(14, 223, 133);
+    background-color: var(--prettygreen);
     color: white;
 
     width: 20vh;
@@ -127,7 +170,7 @@ body {
     justify-content: center;
     flex-basis: 100%;
 
-    border: 5px solid rgb(14, 223, 133);
+    border: 5px solid var(--prettygreen);
     border-radius: 3px;
     padding: 20px;
     margin: 20px;
@@ -140,15 +183,15 @@ body {
 
 .link-button {
     text-decoration: none;
-    border-bottom: 3px solid rgb(14, 223, 133);
+    border-bottom: 3px solid var(--prettygreen);
     padding-bottom: 0px;
     margin: 5vw;
-    color: rgb(14, 223, 133);
+    color: var(--prettygreen);
 }
 
 .link-button:hover {
     padding-bottom: 1px;
-    border-bottom: 3px solid rgb(14, 223, 133);
+    border-bottom: 3px solid var(--prettygreen);
 
     cursor: pointer;
 }
@@ -156,14 +199,14 @@ body {
 input {
     padding: 8px;
     background-color: white;
-    color: rgb(14, 223, 133);
+    color: var(--prettygreen);
     font-family: 'Luckiest Guy', cursive;
-    border: 3px solid rgb(14, 223, 133);
+    border: 3px solid var(--prettygreen);
 }
 
 input:focus {
     outline: none;
-    background-color: rgb(14, 223, 133);
+    background-color: var(--prettygreen);
     color: white;
 }
 
@@ -181,7 +224,7 @@ label[for="load-input"] {
     display: flex;
     align-items: center;
 
-    border-left: 3px dashed rgb(14, 223, 133);
+    border-left: 3px dashed var(--prettygreen);
     padding-left: 10px;
     height: 20vh;
 }

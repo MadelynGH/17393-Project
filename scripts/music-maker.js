@@ -34,6 +34,7 @@ const clickableButtons = [startEyeTracking, noteC4, noteD4, noteE4, noteF4, note
 const compositionContainer = document.getElementById("composition-container");
 const compositionDisplay = document.getElementById("composition");
 let composition = [];
+const beginningOfCompositionDisplay = "<span class='beginning-of-composition-display'>Composition: </span>";
 
 const replacePlainQuarterRestWithSymbol = function() {
     compositionDisplay.innerHTML = compositionDisplay.innerHTML.replaceAll("quartrest", `<img src="images/rest-black.svg" style="height: 0.8em;"><span style='font-size: 0.5em; margin-left: -10px;'>REST</span>`);
@@ -74,7 +75,7 @@ const playComposition = function() {
     new Audio("audio/clear-sound.wav").play();
 
     composition.length = 0;
-    compositionDisplay.innerHTML = "Composition: ";
+    compositionDisplay.innerHTML = beginningOfCompositionDisplay;
 }
 
 let buttonRect;
@@ -174,7 +175,7 @@ const loadComposition = function() {
         .then((text) => {
             composition = JSON.parse(text);
 
-            compositionDisplay.innerHTML = "Composition: ";
+            compositionDisplay.innerHTML = beginningOfCompositionDisplay;
 
             for (let i = 0; i < composition.length; i++) {
                 compositionDisplay.innerHTML += composition[i] + " ";
