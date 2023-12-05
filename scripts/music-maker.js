@@ -24,6 +24,7 @@ const playButton = document.getElementById("play-button");
 const clearButton = document.getElementById("clear-button");
 const saveButton = document.getElementById("save-button");
 const loadButton = document.getElementById("load-button");
+const shareButton = document.getElementById("share-button");
 const loadInput = document.getElementById("load-input");
 const compositionSaveText = document.getElementById("composition-save-text");
 
@@ -38,11 +39,21 @@ let composition = JSON.parse(url.searchParams.get("composition"));
 if (!composition) {
     composition = [];
 }
+
 const beginningOfCompositionDisplay = "<span class='beginning-of-composition-display'>Composition: </span>";
 
 const setURL = function() {
     url.searchParams.set("composition", JSON.stringify(composition));
     history.pushState({}, "", url.href);
+}
+
+const shareComposition = function() {
+    new Audio("/audio/share-sound.wav").play();
+
+    navigator.clipboard.writeText(window.location);
+    
+    compositionSaveText.innerHTML = "Link copied to your clipboard!";
+    setTimeout(function() {compositionSaveText.innerHTML = "";}, 1000)
 }
 
 const replacePlainQuarterRestWithSymbol = function() {
@@ -243,6 +254,7 @@ window.addEventListener("load", function() {
     clearButton.addEventListener("click", function() {clearComposition()});
     saveButton.addEventListener("click", function() {saveComposition()});
     loadButton.addEventListener("click", function() {loadComposition()});
+    shareButton.addEventListener("click", function() {shareComposition()});
 
     startEyeTracking.addEventListener("click", function() {eyeTracking()});
 });

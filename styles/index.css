@@ -240,9 +240,17 @@ label[for="load-input"] {
     padding-bottom: 2.5vh;
 }
 
-.quartrest-symbol {
-    height: 1.3em;
+.svg-symbol {
+    height: 60px;
     margin-bottom: 0px;
+}
+
+#share-button .note-text {
+    font-size: 40px;
+}
+
+#share-button .svg-symbol {
+    height: 50px;
 }
 
 #quartrest .note-text {
