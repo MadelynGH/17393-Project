@@ -48,7 +48,7 @@ const setURL = function() {
 }
 
 const shareComposition = function() {
-    new Audio("/audio/share-sound.wav").play();
+    new Audio("audio/share-sound.wav").play();
 
     navigator.clipboard.writeText(window.location);
     
