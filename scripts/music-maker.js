@@ -33,8 +33,17 @@ const clickableButtons = [startEyeTracking, noteC4, noteD4, noteE4, noteF4, note
 
 const compositionContainer = document.getElementById("composition-container");
 const compositionDisplay = document.getElementById("composition");
-let composition = [];
+let url = new URL(window.location);
+let composition = JSON.parse(url.searchParams.get("composition"));
+if (!composition) {
+    composition = [];
+}
 const beginningOfCompositionDisplay = "<span class='beginning-of-composition-display'>Composition: </span>";
+
+const setURL = function() {
+    url.searchParams.set("composition", JSON.stringify(composition));
+    history.pushState({}, "", url.href);
+}
 
 const replacePlainQuarterRestWithSymbol = function() {
     compositionDisplay.innerHTML = compositionDisplay.innerHTML.replaceAll("quartrest", `<img src="images/rest-black.svg" style="height: 0.8em;"><span style='font-size: 0.5em; margin-left: -10px;'>REST</span>`);
@@ -42,18 +51,21 @@ const replacePlainQuarterRestWithSymbol = function() {
 
 const addNote = function(note) {
     new Audio("audio/note-" + note +
-     ".wav?raw=true").play();
+    ".wav?raw=true").play();
 
     compositionDisplay.innerHTML += note + " ";
     replacePlainQuarterRestWithSymbol();
 
     composition.push(note);
+    setURL();
 }
 
 const addNoteWithoutSound = function(note) {
     compositionDisplay.innerHTML += note + " ";
+    replacePlainQuarterRestWithSymbol();
 
     composition.push(note);
+    setURL();
 }
 
 const delay = 300;
@@ -76,6 +88,7 @@ const playComposition = function() {
 
     composition.length = 0;
     compositionDisplay.innerHTML = beginningOfCompositionDisplay;
+    setURL();
 }
 
 let buttonRect;
@@ -182,6 +195,7 @@ const loadComposition = function() {
             }
 
             replacePlainQuarterRestWithSymbol();
+            setURL();
         })
         .catch((error) => {
             console.log("Loading unsucessful because: " + error);
@@ -203,7 +217,16 @@ const loadComposition = function() {
 }
 
 window.addEventListener("load", function() {
-
+    console.log(composition);
+    console.log(composition.length);
+    let hasURLBeenCheckedYet = false;
+    if (composition && !hasURLBeenCheckedYet) {
+        for (let i = 0; i < composition.length; i++) {
+            compositionDisplay.innerHTML += composition[i] + " ";
+            replacePlainQuarterRestWithSymbol();
+            hasURLBeenCheckedYet = true;
+        }
+    }
 
     // add event listeners for each note to call the playNote function with the note as the paramater when the button is clicked
     noteC4.addEventListener("click", function() {callAddNote(noteC4);});
