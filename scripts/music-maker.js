@@ -50,10 +50,13 @@ const setURL = function() {
 const shareComposition = function() {
     new Audio("audio/share-sound.wav").play();
 
-    navigator.clipboard.writeText(decodeURI(window.location));
+    navigator.share({
+        url: decodeURI(window.location)
+    })
     
+    /*navigator.clipboard.writeText(decodeURI(window.location));
     compositionSaveText.innerHTML = "Link copied to your clipboard!";
-    setTimeout(function() {compositionSaveText.innerHTML = "";}, 1000)
+    setTimeout(function() {compositionSaveText.innerHTML = "";}, 1000)*/
 }
 
 const replacePlainQuarterRestWithSymbol = function() {
