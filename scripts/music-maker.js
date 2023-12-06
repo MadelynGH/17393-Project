@@ -30,7 +30,7 @@ const compositionSaveText = document.getElementById("composition-save-text");
 
 const startEyeTracking = document.getElementById("start-eye-tracking");
 
-const clickableButtons = [startEyeTracking, noteC4, noteD4, noteE4, noteF4, noteG4, noteA5, noteB5, quartrest, playButton, clearButton, saveButton, loadButton];
+const clickableButtons = [startEyeTracking, noteC4, noteD4, noteE4, noteF4, noteG4, noteA5, noteB5, quartrest, playButton, clearButton, saveButton, loadButton, shareButton];
 
 const compositionContainer = document.getElementById("composition-container");
 const compositionDisplay = document.getElementById("composition");
