@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>Tutorial - 17393 Project Prototype</title>
+
+        <link rel="stylesheet" type="text/css" href="styles/tutorial.css">
+    </head>
+
+    <body>
+        <div id="content">
+            <h1>How to use our prototype</h1>
+
+            <div class="break"></div>
+
+            <div id="main-paragraph">
+                <h3>What it is</h3>
+                We created a touch-free music composition app with eye tracking to make music available to all!
+                <br>
+                <br>
+                Our tool consists of colorful buttons. At the top, there is a container containing the note buttons.
+                <br>
+                So far, we have implemented C4, D4, E4, F4, G4, A5, B5, and a rest. Although it depends on the tempo, the notes (and rest) we've implemented so far are made to be relative quarter notes when we add different lengths.
+                <br>
+                <h3>Eye Tracking</h3>
+                You may choose to use our built-in eye tracking, Gaze Cloud API, or if you have a hardware eye tracker on your computer, you are more than welcome to use that!
+                <br>
+                <strong>If you are using our built-in eye tracking:</strong>
+                Once the "Start Eye Tracking" button is clicked, it will ask you to correct your head position, then to start the calibration. Once the calibration is finished, you can start using our app!
+                <br>
+                <h3>Using it</h3>
+                To play a note, look at the button representing it. It will then play the note you looked at, and add it to the Composition at the bottom. The Composition saves into the browser URL, so if you reload, it will retain it. But if you close the browser window and re-open it, it won't have the Composition anymore UNLESS you put the composition into the browser URL. For example:
+                <br>
+                <code id="link-code-block">
+                    <span id="code-block-header"><span id="copy-link-button">&#10697; Copy</span></span>
+                    <br>
+                    <span id="link">
+                        <pre>https://madelyngh.github.io/17393-Project/music-maker.html?composition=["c4","c4","g4","g4","a5","a5","g4"]</pre>
+                    </span>
+                </code>
+            </div>
+        </div>
+
+        <script src="scripts/header.js"></script>
+        <script src="scripts/tutorial.js"></script>
+    </body>
+</html>

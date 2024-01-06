@@ -6,6 +6,9 @@ import db from "./firebase.js";
 
 let compositionCurrentlyPlaying = false;
 
+const tutorialLink = document.getElementById("tutorial-link");
+const logoLink = document.getElementById("logo-link");
+
 // define the note buttons class as a whole
 const noteButtons = document.getElementsByClassName("note-button");
 
@@ -30,7 +33,7 @@ const compositionSaveText = document.getElementById("composition-save-text");
 
 const startEyeTracking = document.getElementById("start-eye-tracking");
 
-const clickableButtons = [startEyeTracking, noteC4, noteD4, noteE4, noteF4, noteG4, noteA5, noteB5, quartrest, playButton, clearButton, saveButton, loadButton, shareButton];
+const clickableButtons = [logoLink, tutorialLink, noteC4, noteD4, noteE4, noteF4, noteG4, noteA5, noteB5, quartrest, playButton, clearButton, saveButton, loadButton, shareButton];
 
 const compositionContainer = document.getElementById("composition-container");
 const compositionDisplay = document.getElementById("composition");
@@ -124,8 +127,7 @@ const findNoteAtCoordinates = async function (x, y) {
         if (y > topSide & y < bottomSide & x > leftSide & x < rightSide) {
 
             if (y > topSide & y < bottomSide & x > leftSide & x < rightSide) {
-                callAddNote(clickableButtons[i]);
-
+                clickButton(clickableButtons[i]);
             /* new Promise ((resolve) => {
                 setTimeout(function() {             
 
@@ -163,25 +165,29 @@ const eyeTracking = function() {
 }
 
 let soundToPlay;
-const callAddNote = function(noteOrRest) {
-    if (noteOrRest.id.includes("note")) { // If this returns true, the given parameter is a note.
-        soundToPlay = noteOrRest.id.replace("-note", "");
+const clickButton = function(button) {
+    if (button.id.includes("note")) { // If this returns true, the given parameter is a note.
+        soundToPlay = button.id.replace("-note", "");
         if (compositionCurrentlyPlaying) {
             addNoteWithoutSound(soundToPlay);
         } else {
             addNote(soundToPlay);
         }
-    } else if (noteOrRest.id.includes("rest")) { // If this returns true, the given parameter is a rest.
-        soundToPlay = noteOrRest.id;
+    } else if (button.id.includes("rest")) { // If this returns true, the given parameter is a rest.
+        soundToPlay = button.id;
         if (compositionCurrentlyPlaying) {
             addNoteWithoutSound(soundToPlay);
         } else {
             addNote(soundToPlay);
         }
-    } else if (noteOrRest.id == "play-button") {
+    } else if (button.id == "play-button") {
         playComposition();
-    } else if (noteOrRest.id == "clear-button") {
+    } else if (button.id == "clear-button") {
         clearComposition();
+    } else if (button.id == "logo-link") {
+        location.href = "music-maker.html";
+    } else if (button.id == "tutorial-link") {
+        location.href = "tutorial.html";
     }
 
 }
@@ -243,15 +249,15 @@ window.addEventListener("load", function() {
     }
 
     // add event listeners for each note to call the playNote function with the note as the paramater when the button is clicked
-    noteC4.addEventListener("click", function() {callAddNote(noteC4);});
-    noteD4.addEventListener("click", function() {callAddNote(noteD4);});
-    noteE4.addEventListener("click", function() {callAddNote(noteE4);});
-    noteF4.addEventListener("click", function() {callAddNote(noteF4);});
-    noteG4.addEventListener("click", function() {callAddNote(noteG4);});
-    noteA5.addEventListener("click", function() {callAddNote(noteA5);});
-    noteB5.addEventListener("click", function() {callAddNote(noteB5);});
+    noteC4.addEventListener("click", function() {clickButton(noteC4);});
+    noteD4.addEventListener("click", function() {clickButton(noteD4);});
+    noteE4.addEventListener("click", function() {clickButton(noteE4);});
+    noteF4.addEventListener("click", function() {clickButton(noteF4);});
+    noteG4.addEventListener("click", function() {clickButton(noteG4);});
+    noteA5.addEventListener("click", function() {clickButton(noteA5);});
+    noteB5.addEventListener("click", function() {clickButton(noteB5);});
 
-    quartrest.addEventListener("click", function() {callAddNote(quartrest);})
+    quartrest.addEventListener("click", function() {clickButton(quartrest);})
 
     playButton.addEventListener("click", function() {playComposition()});
     clearButton.addEventListener("click", function() {clearComposition()});

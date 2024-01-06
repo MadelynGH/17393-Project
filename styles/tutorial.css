@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    overflow-x: hidden;
+}
+
+#content {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+#content * {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+#main-paragraph {
+    text-align: center;
+    width: 70vw;
+}
+
+code {
+    display: block; 
+    margin: 10px; 
+    width: fit-content; 
+    background-color: black; 
+    color: white;
+}
+
+#code-block-header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-content: center;
+    background-color: rgb(65, 65, 65); 
+    width: 100%!important;
+    padding: 5px;
+    padding-right: 7px!important;
+    width: fit-content;
+}
+
+#copy-link-button:hover {
+    cursor: pointer;
+}
+
+#link {
+    margin: 8px;
+}
