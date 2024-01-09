@@ -114,7 +114,6 @@ let bottomSide;
 let leftSide;
 let rightSide;
 const findNoteAtCoordinates = async function (x, y) {
-    
     for (let i = 0; i < clickableButtons.length; i++) {
         buttonRect = clickableButtons[i].getBoundingClientRect();
         topSide = buttonRect.top;
@@ -165,31 +164,56 @@ const eyeTracking = function() {
 }
 
 let soundToPlay;
+let clickRef;
+let clicks;
 const clickButton = function(button) {
-    if (button.id.includes("note")) { // If this returns true, the given parameter is a note.
-        soundToPlay = button.id.replace("-note", "");
-        if (compositionCurrentlyPlaying) {
-            addNoteWithoutSound(soundToPlay);
-        } else {
-            addNote(soundToPlay);
-        }
-    } else if (button.id.includes("rest")) { // If this returns true, the given parameter is a rest.
-        soundToPlay = button.id;
-        if (compositionCurrentlyPlaying) {
-            addNoteWithoutSound(soundToPlay);
-        } else {
-            addNote(soundToPlay);
-        }
-    } else if (button.id == "play-button") {
-        playComposition();
-    } else if (button.id == "clear-button") {
-        clearComposition();
-    } else if (button.id == "logo-link") {
-        location.href = "music-maker.html";
-    } else if (button.id == "tutorial-link") {
-        location.href = "tutorial.html";
-    }
+    clickRef = db.collection("clickcount").doc("YVukjRekniSDSGEpmOlX");
+    clickRef.get().then((doc) => {
+        clicks = doc.data().clicks + 1;
+        console.log(clicks);
 
+        db.collection("clickcount").doc("YVukjRekniSDSGEpmOlX").set({
+            clicks: clicks
+        })
+        .then(() => {
+            if (button.id.includes("note")) { // If this returns true, the given parameter is a note.
+                soundToPlay = button.id.replace("-note", "");
+                if (compositionCurrentlyPlaying) {
+                    addNoteWithoutSound(soundToPlay);
+                } else {
+                    addNote(soundToPlay);
+                }
+            } else if (button.id.includes("rest")) { // If this returns true, the given parameter is a rest.
+                soundToPlay = button.id;
+                if (compositionCurrentlyPlaying) {
+                    addNoteWithoutSound(soundToPlay);
+                } else {
+                    addNote(soundToPlay);
+                }
+            } else if (button.id == "play-button") {
+                playComposition();
+            } else if (button.id == "clear-button") {
+                clearComposition();
+            } else if (button.id == "save-button" ) {
+                saveComposition();
+            } else if (button.id == "load-button" ) {
+                loadComposition();
+            } else if (button.id == "share-button" ) {
+                shareComposition();
+            } else if (button.id == "start-eye-tracking" ) {
+                eyeTracking();
+            } else if (button.id == "logo-link") {
+                location.href = "music-maker.html";
+            } else if (button.id == "tutorial-link") {
+                location.href = "tutorial.html";
+            }
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
 }
 
 const saveComposition = function() {
@@ -259,11 +283,11 @@ window.addEventListener("load", function() {
 
     quartrest.addEventListener("click", function() {clickButton(quartrest);})
 
-    playButton.addEventListener("click", function() {playComposition()});
-    clearButton.addEventListener("click", function() {clearComposition()});
-    saveButton.addEventListener("click", function() {saveComposition()});
-    loadButton.addEventListener("click", function() {loadComposition()});
-    shareButton.addEventListener("click", function() {shareComposition()});
+    playButton.addEventListener("click", function() {clickButton(playButton)});
+    clearButton.addEventListener("click", function() {clickButton(clearButton)});
+    saveButton.addEventListener("click", function() {clickButton(saveButton)});
+    loadButton.addEventListener("click", function() {clickButton(loadButton)});
+    shareButton.addEventListener("click", function() {clickButton(shareButton)});
 
-    startEyeTracking.addEventListener("click", function() {eyeTracking()});
+    startEyeTracking.addEventListener("click", function() {clickButton(startEyeTracking)});
 });
